@@ -1,0 +1,78 @@
+# Project Title: PDF to Video Converter
+
+## Description
+This project converts a PDF file into images, extracts text from these images, and generates a video from the extracted text. The process involves:
+1. Converting PDF pages to images.
+2. Extracting text from these images using OCR (Optical Character Recognition).
+3. Generating voiceovers for each extracted text segment.
+4. Creating images from the text.
+5. Combining images, text, and voiceovers into video clips.
+6. Concatenating video clips into a final video.
+
+## File Descriptions
+- `main.py`: This script converts PDF pages to images, extracts text from these images, and saves the text to a file.
+- `video_generator.py`: This script reads the extracted text, generates images and voiceovers, and combines them into a video.
+
+## Dependencies
+The following Python libraries are required for this project:
+- pypdfium2
+- matplotlib
+- pillow (PIL)
+- pytesseract
+- gTTS
+- moviepy
+- openai
+- requests
+- urllib
+- re
+- os
+
+## Installation
+1. Clone the repository:
+   TBA  
+
+2. Activate Venv And Install the required Python packages:
+    source personaltutor/bin/activate
+    pip install pypdfium2 matplotlib pillow pytesseract gTTS moviepy openai requests urllib3
+
+3. Install Tesseract OCR:
+    - On Ubuntu:
+        sudo apt-get update
+        sudo apt-get install tesseract-ocr
+    - On macOS:
+        brew install tesseract
+
+## Usage (How to Run The Project)
+1. Place your PDF file in the project directory and rename it to `history.pdf`.
+
+2. Set your OpenAI API key in a file named `api_key.py` with the following content:
+    ```python
+    API_KEY = "your_openai_api_key"
+    ```
+
+3. Run the `main.py` script to convert the PDF to images, extract text, and save the text to `generated_text.txt`:
+    ```sh
+    python3 main.py
+    ```
+
+4. Run the `video_generator.py` script to generate the video from the extracted text:
+    ```sh
+    python3 video_generator.py
+    ```
+
+## Output
+- `generated_text.txt`: Contains the text extracted from the PDF images.
+- `audio/`: Directory containing voiceover audio files.
+- `images/`: Directory containing images generated from text.
+- `videos/`: Directory containing individual video clips for each text segment.
+- `final_video.mp4`: The final concatenated video.
+
+## Notes
+- Ensure you have an active internet connection to use the OpenAI API and download placeholder images.
+- The mock function `mock_generate_image` is used in `video_generator.py` to simulate image generation. Replace this with actual image generation logic if needed. This mock is written as OPENAI API key limit exhausted.
+
+## Acknowledgements
+- This project uses Tesseract OCR for text extraction.
+- OpenAI's API is used for generating images from text prompts.
+- gTTS (Google Text-to-Speech) is used for generating voiceovers.
+- MoviePy is used for video editing.
